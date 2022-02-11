@@ -1,0 +1,17 @@
+@use "global" as *;
+
+.p-related-articles {
+	max-width: rem(600);
+	width: 100%;
+	padding: rem(9) rem(114);
+	margin: auto;
+	color: $white;
+	border: 1px solid $white;
+	letter-spacing: 0.125em;
+	text-align: center;
+
+	@include mq('md') {
+		max-width: rem(1100);
+		background-color: $gray;
+	}
+}
