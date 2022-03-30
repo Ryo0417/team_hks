@@ -1,7 +1,7 @@
 jQuery(function ($) {
   // この中であればWordpressでも「$」が使用可能になる
 
-  var topBtn = $(".c-pagetop");
+  var topBtn = $(".js-pagetop");
   topBtn.hide();
 
   // ボタンの表示設定
@@ -31,9 +31,9 @@ jQuery(function ($) {
   $(window).on("scroll", function () {
     if (
       ($(".js-slider-mv").height() ||
-        $(".p-sub-fv").height() ||
-        $(".p-single-work__title").height() ||
-        $(".p-news-article__thumbnail,.p-blog-article__thumbnail").height()) <
+        $(".js-sub-fv").height() ||
+        $(".js-work-article__title").height() ||
+        $(".js-news-article__thumbnail,.js-blog-article__thumbnail").height()) <
       $(this).scrollTop()
     ) {
       $(".js-header").css("background", "rgba(17,17,17,1)");
@@ -51,10 +51,10 @@ jQuery(function ($) {
   // ハンバーガーメニュー
   $(".js-hamburger").on("click", function () {
     if ($(".js-hamburger").hasClass("is-active")) {
-      $(".js-nav-menu").fadeOut();
+      $(".js-sp-nav").fadeOut();
       $(".js-hamburger").removeClass("is-active");
     } else {
-      $(".js-nav-menu").fadeIn();
+      $(".js-sp-nav").fadeIn();
       $(".js-hamburger").addClass("is-active");
     }
     // $('body').css('overflow-y', 'hidden');  // 本文の縦スクロールを無効
@@ -63,7 +63,7 @@ jQuery(function ($) {
   //ページ遷移時にドロワーを閉じる
   $(".js-sp-nav__item a").on("click", function () {
     $(".js-hamburger").removeClass("is-active");
-    $(".js-nav-menu").fadeOut();
+    $(".js-sp-nav").fadeOut();
   });
 
   // スムーススクロール (絶対パスのリンク先が現在のページであった場合でも作動)
@@ -126,7 +126,7 @@ jQuery(function ($) {
 
   // single-swiper
   //メイン
-  var slider = new Swiper(".gallery-slider", {
+  var slider = new Swiper(".js-gallery-slider", {
     slidesPerView: 1,
     centeredSlides: true,
     loop: true,
@@ -138,7 +138,7 @@ jQuery(function ($) {
   });
 
   //サムネイル
-  var thumbs = new Swiper(".gallery-thumbs", {
+  var thumbs = new Swiper(".js-gallery-thumbs", {
     slidesPerView: "auto",
     spaceBetween: 24,
     centeredSlides: true,
@@ -166,9 +166,9 @@ jQuery(function ($) {
     var bp = 767;
     if ($window > bp) {
       $(".js-hamburger").removeClass("is-active");
-      $(".js-nav-menu").fadeOut();
+      $(".js-sp-nav").fadeOut();
     } else {
-      $(".p-sp-nav").hide();
+      $(".js-sp-nav").hide();
       $(".js-hamburger").removeClass("is-active");
     }
   });
@@ -176,11 +176,11 @@ jQuery(function ($) {
   // スマホのアドレスバーを考慮
   $(document).ready(function () {
     var heroHeight = $(window).height();
-    $(".slide-image1, .slide-image2, .slide-image3").height(heroHeight);
+    $(".js-slide-image1, .js-slide-image2, .js-slide-image3").height(heroHeight);
   });
 
   $(window).resize(function () {
     var heroHeight = $(window).height();
-    $(".slide-image1, .slide-image2, .slide-image3").height(heroHeight);
+    $(".js-slide-image1, .js-slide-image2, .js-slide-image3").height(heroHeight);
   });
 });
